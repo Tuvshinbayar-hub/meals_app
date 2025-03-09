@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:meals_app/screens/categories.dart';
+import 'package:meals_app/screens/favorites/bloc/favorite_star_bloc.dart';
+import 'package:meals_app/screens/bottom_tab_bar.dart';
+import 'package:meals_app/screens/filters/bloc/filter_item_bloc.dart';
 
 final kColorScheme = ColorScheme.fromSeed(
     brightness: Brightness.dark, seedColor: Color.fromARGB(156, 210, 152, 0));
@@ -19,9 +22,19 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: theme,
-      home: Categories(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => FavoriteStarBloc(),
+        ),
+        BlocProvider(
+          create: (context) => FilterItemBloc(),
+        )
+      ],
+      child: MaterialApp(
+        theme: theme,
+        home: BottomTabBar(),
+      ),
     );
   }
 }
