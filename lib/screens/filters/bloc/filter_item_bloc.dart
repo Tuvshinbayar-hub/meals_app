@@ -6,7 +6,6 @@ class FilterItemBloc extends Bloc<FilterItemEvent, FilterItemState> {
   FilterItemBloc() : super(FilterItemState()) {
     on<ToggleGlutenFree>(
       (event, emit) {
-        print(state.isGlutenFree);
         emit(state.copyWith(isGlutenFree: !state.isGlutenFree));
       },
     );

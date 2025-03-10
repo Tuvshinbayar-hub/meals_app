@@ -21,8 +21,9 @@ class MainDrawer extends StatelessWidget {
               width: 24,
             ),
             Icon(
-              Icons.food_bank_sharp,
+              Icons.restaurant,
               size: 32,
+              color: Theme.of(context).colorScheme.primary,
             ),
             SizedBox(
               width: 12,
@@ -31,7 +32,7 @@ class MainDrawer extends StatelessWidget {
               "Meals",
               style: TextStyle().copyWith(
                 fontSize: 22,
-                color: Theme.of(context).primaryTextTheme.bodyLarge!.color,
+                color: Theme.of(context).colorScheme.primary,
               ),
             )
           ],
@@ -58,6 +59,7 @@ class MainDrawer extends StatelessWidget {
             Icon(
               Icons.settings,
               size: 32,
+              color: Theme.of(context).colorScheme.primary,
             ),
             SizedBox(
               width: 12,
@@ -66,7 +68,7 @@ class MainDrawer extends StatelessWidget {
               "Filters",
               style: TextStyle().copyWith(
                 fontSize: 22,
-                color: Theme.of(context).primaryTextTheme.bodyLarge!.color,
+                color: Theme.of(context).colorScheme.primary,
               ),
             )
           ],
@@ -79,27 +81,14 @@ class MainDrawer extends StatelessWidget {
       backgroundColor: Theme.of(context).canvasColor,
       child: Column(
         children: [
-          // DrawerHeader(
-          //     child: Row(
-          //   children: [
-          //     Icon(
-          //       Icons.fastfood,
-          //       size: 40,
-          //       color: Theme.of(context).colorScheme.onPrimary,
-          //     ),
-          //     Text(
-          //       'Configure your taste!',
-          //       style: TextStyle().copyWith(
-          //           fontSize: 22,
-          //           color: Theme.of(context).colorScheme.onPrimary),
-          //     )
-          //   ],
-          // )),
-          Container(
-            height: 200,
-            color: Theme.of(context).colorScheme.primary,
+          DrawerHeader(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [
+                Theme.of(context).colorScheme.primary,
+                Theme.of(context).colorScheme.primary.withAlpha(180)
+              ], begin: Alignment.topLeft, end: Alignment.bottomRight),
+            ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
                   Icons.fastfood,
